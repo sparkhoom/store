@@ -39,4 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'grape'
-gem 'devise'
+# gem devise '3.4.1' have bug, can't verify user sign out
+gem 'devise', '3.2.4'
