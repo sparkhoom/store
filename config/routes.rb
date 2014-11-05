@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         post 'registrations' => 'registrations#create', :as => 'register'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
+
+      get 'tasks' => 'tasks#index', :as => 'tasks'
     end
   end
   # Example of regular route:

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_save :ensure_authentication_token
 
+  acts_as_token_authenticatable
+
   def skip_confirmation!
     self.confirmed_at = Time.now
   end
@@ -27,5 +29,5 @@ class User < ActiveRecord::Base
       break token unless User.where(authentication_token: token).first
     end
   end
-  
+
 end
