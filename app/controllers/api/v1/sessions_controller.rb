@@ -3,6 +3,7 @@ class Api::V1::SessionsController < Devise::SessionsController
                      :if => Proc.new { |c| c.request.format == 'application/json' }
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json'}
   respond_to :json
+
   def create
     p warden.params
     warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
@@ -16,6 +17,7 @@ class Api::V1::SessionsController < Devise::SessionsController
     user = User.find_by_authentication_token(params[:auth_token])
     if user
       user.reset_authentication_token!
+      user.save
       render :status => 200,
            :json => { :success => true,
                       :info => "Logged out",
