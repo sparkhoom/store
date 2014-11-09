@@ -5,6 +5,8 @@ gem 'rails', '4.1.2'
 # Use sqlite3 as the database for Active Record
 group :development, :test do # <<<< :development, not devlopment
   gem 'sqlite3'
+  gem "rspec"
+  gem "rspec-rails"
 end
 group :production do
 	gem 'pg'
