@@ -7,6 +7,7 @@ group :development, :test do # <<<< :development, not devlopment
   gem 'sqlite3'
   gem "rspec"
   gem "rspec-rails"
+  gem "factory_girl_rails", "~> 4.0"
 end
 group :production do
 	gem 'pg'
