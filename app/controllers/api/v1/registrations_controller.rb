@@ -5,7 +5,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   def create
-    build_resource sign_up_params
+    build_resource user_params
     resource.skip_confirmation!
     if resource.save
       sign_in resource
@@ -21,4 +21,12 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                         :data => {} }
     end
   end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone_number)
+    end
+
+
 end
