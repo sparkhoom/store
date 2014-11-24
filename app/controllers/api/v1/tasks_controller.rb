@@ -1,10 +1,10 @@
 # file: app/controllers/api/v1/tasks_controller.rb
 class Api::V1::TasksController < ApplicationController
-  skip_before_filter :verify_authenticity_token,
-                     :if => Proc.new { |c| c.request.format == 'application/json' }
-  acts_as_token_authentication_handler_for User
+  # skip_before_filter :verify_authenticity_token,
+  #                    :if => Proc.new { |c| c.request.format == 'application/json' }
   # Just skip the authentication for now
-  before_action :authenticate_user!
+  acts_as_token_authentication_handler_for User
+  
 
   respond_to :json
 
@@ -18,6 +18,8 @@ class Api::V1::TasksController < ApplicationController
                     {"title":"Complete the tutorial"}
                   ]
          }
-  }'
+  }',
+  :status => 200
   end
+
 end

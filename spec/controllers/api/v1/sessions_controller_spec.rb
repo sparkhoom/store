@@ -6,20 +6,20 @@ RSpec.describe Api::V1::SessionsController, :type => :controller do
 		end
 	    it "login in successully" do
 	      user = create(:user)
-		  @request.env["devise.mapping"] = Devise.mappings[:user]
+		  	@request.env["devise.mapping"] = Devise.mappings[:user]
 	      # user = User.new(:name => 'testuser', :email => 'user@example.com', :password => 'secret', :password_confirmation => 'secret')
 	      post :create, user: {email: user.email, password: user.password}
 	      body = JSON.parse(response.body)
 
 	      expect(body["success"]).to eq true
-		  expect(response).to have_http_status(200)
+		  	expect(response).to have_http_status(200)
 	    end
 
 	    it "login in unsucessfully" do
 	      user = create(:user)
-		  @request.env["devise.mapping"] = Devise.mappings[:user]
-		  post :create, user: {email: user.email, password: "invaid password"}
-		  expect(response).to have_http_status(401)
+			  @request.env["devise.mapping"] = Devise.mappings[:user]
+			  post :create, user: {email: user.email, password: "invaid password"}
+			  expect(response).to have_http_status(401)
 	    end
 
 	    it "log out sucessfuly" do
