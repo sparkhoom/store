@@ -8,6 +8,7 @@ group :development, :test do # <<<< :development, not devlopment
   gem "rspec"
   gem "rspec-rails"
   gem "factory_girl_rails", "~> 4.0"
+  gem "shoulda-matchers"
 end
 group :production do
 	gem 'pg'

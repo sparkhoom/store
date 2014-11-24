@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
-
+  validates :phone_number, uniqueness: true, presence: true
   before_save :ensure_authentication_token
 
   acts_as_token_authenticatable
+
 
   def skip_confirmation!
     self.confirmed_at = Time.now
