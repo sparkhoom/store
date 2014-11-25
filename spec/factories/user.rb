@@ -1,3 +1,4 @@
+
 FactoryGirl.define do
   factory :user do
     name { Faker::Internet.name }
@@ -8,6 +9,4 @@ FactoryGirl.define do
 
     phone_number { Faker::Internet.name }
   end
-
-  
 end
