@@ -9,7 +9,7 @@ class Api::V1::TasksController < ApplicationController
   respond_to :json
 
   def index
-    render :text => '{
+    render :json => '{
   "success":true,
   "info":"ok",
   "data":{

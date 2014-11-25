@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -52,3 +52,5 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'simple_token_authentication'
 gem 'devise-i18n'
+gem 'rabl'
+gem 'oj'

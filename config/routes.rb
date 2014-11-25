@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       end
 
       get 'tasks' => 'tasks#index', :as => 'tasks'
+      get 'products' => 'products#index', :as => 'products'
+      get 'products/:id' => 'products#show', :as => 'products_show'
     end
   end
   # Example of regular route:
